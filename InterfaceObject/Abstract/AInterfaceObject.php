@@ -28,7 +28,7 @@ abstract class AInterfaceObject {
      * 
      * @param Method $method
      */
-    public function addMethod(Method $method) {
+    public function addMethod(AMethod $method) {
         $this->methods[$method->getName()] = $method;
     }
     
@@ -37,7 +37,7 @@ abstract class AInterfaceObject {
      * 
      * @param Method $method
      */
-    public function removeMethod(Method $method){
+    public function removeMethod(AMethod $method){
         if(array_key_exists($method->getName(), $this->methods)){
             unset($this->methods[$method->getName()]);
         }
@@ -47,7 +47,7 @@ abstract class AInterfaceObject {
      * Sets the name of the method.
      * @param type $name
      */
-    public function setName(type $name) {
+    public function setName($name) {
         $this->name = $name;
     }
     

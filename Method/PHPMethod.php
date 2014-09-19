@@ -9,12 +9,11 @@
 class PHPMethod extends AMethod {
     
     public function toString() {
-        $method = "\t" . $this->getScope() . ' function(';
+        $method = "    \n" . $this->getScope() . " function {$this->getName()}(";
         foreach($this->parameters as $parameter){
-            $method .= $parameter->getType() . ' $' . $parameter->getName() . ')' .PHP_EOL;
+            $method .= $parameter->getType() . ' $' . $parameter->getName() . ');' . PHP_EOL;
         }
-        $method .= PHP_EOL;
-        $method .= '\t}';
+            
         return $method;
     }
 
