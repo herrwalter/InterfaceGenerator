@@ -24,6 +24,12 @@ abstract class AMethod {
      * @var string 
      */
     protected $scope;
+    
+    /**
+     * Comment on method
+     * @var string
+     */
+    protected $comment;
 
     /**
      * List of paramters
@@ -42,6 +48,14 @@ abstract class AMethod {
     public function getReturnValue() {
         return $this->returnValue;
     }
+    
+    public function getComment() {
+        return $this->comment;
+    }
+
+    public function setComment($comment) {
+        $this->comment = $comment;
+    }
 
     public function setReturnValue($returnValue) {
         $this->returnValue = $returnValue;
@@ -56,6 +70,15 @@ abstract class AMethod {
             $this->scope = $scope;
         }
     }
+    
+    public function getCommentBlock(){
+        $commentBlock = new CommentBlock();
+        $commentBlock->setComment($this->comment);
+        $commentBlock->setParameters($this->parameters);
+        $commentBlock->setReturnValue($this->returnValue);
+        $commentBlock->setAnnotations($this->annotations);
+        return $commentBlock->toString();
+    }
 
     public function addParameter(Parameter $parameter) {
         $this->parameters[$parameter->getName()] = $parameter;
@@ -64,6 +87,16 @@ abstract class AMethod {
     public function removeParameter(Parameter $parameter) {
         if (array_key_exists($parameter->getName(), $this->parameters)) {
             unset($this->parameters[$parameter->getName()]);
+        }
+    }
+    
+    public function addAnnotation(Annotation $annotation) {
+        $this->annotations[$annotation->getName()] = $annotation;
+    }
+
+    public function removeAnnotation(Annotation $annotation) {
+        if (array_key_exists($annotation->getName(), $this->annotations)) {
+            unset($this->annotations[$annotation->getName()]);
         }
     }
 

@@ -6,7 +6,7 @@
  * 
  */
 
-class PHPGenerator extends AGenerator
+class JAVAGenerator extends AGenerator
 {
 
     public function setFolder($folder)
@@ -36,11 +36,11 @@ class PHPGenerator extends AGenerator
     {
         $interfacesData = json_decode($this->json, true);
         foreach ($interfacesData as $interface) {
-            $filename = $interface['name'] . '.php';
-            $interfaceObject = new PHPInterfaceObject();
+            $filename = $interface['name'] . '.java';
+            $interfaceObject = new JAVAInterfaceObject();
             $interfaceObject->setName($interface['name']);
             foreach ($interface['methods'] as $method) {
-                $methodObject = new PHPMethod();
+                $methodObject = new JAVAMethod();
                 $methodObject->setName($method['name']);
                 $methodObject->setReturnValue($method['returnType']);
                 $methodObject->setScope($method['scope']);

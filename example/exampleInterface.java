@@ -1,5 +1,5 @@
-<?php 
-interface exampleInterface {
+public interface exampleInterface
+{
 
 	/**
 	 * This is an example method
@@ -9,6 +9,6 @@ interface exampleInterface {
 	 * @param exampleType exampleParameter
 	 * @return void
 	 */
-	public function exampleMethod(exampleType $exampleParameter);
+	 public void exampleMethod (exampleType $exampleParameter);
 
 }

@@ -6,10 +6,17 @@
                 "name": "exampleMethod",
                 "returnType": "void",
                 "scope": "public",
+                "comment": "This is an example method\nWith an extra line\n",
                 "parameters": [
                     { 
                         "name" : "exampleParameter",
                         "type" : "exampleType"
+                    }
+                ],
+                "annotations": [
+                    {
+                        "name" : "Annotation",
+                        "value" : "example"
                     }
                 ]
             }
